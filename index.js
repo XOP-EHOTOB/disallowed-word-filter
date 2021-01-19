@@ -5,6 +5,7 @@ module.exports = class replaceDisallowedWords {
     if (props && typeof props.additionalWords === 'string') {
       this.additionalWords = props.additionalWords
         .replace(/\s+/g, '')
+        .toLowerCase()
         .split(',')
     } else {
       this.additionalWords = null
@@ -12,12 +13,13 @@ module.exports = class replaceDisallowedWords {
   }
 
   check = (string, all) => {
-    if (!string | (typeof string != 'string'))
+    if (typeof string != 'string')
       return console.error('Отсуствует строка для проверки!')
 
     if (!all) {
       if (!this.additionalWords)
         return console.error('Нет списка запрещенных слов!')
+
       return (
         string
           .toLowerCase()
@@ -30,7 +32,7 @@ module.exports = class replaceDisallowedWords {
   }
 
   replace = (string, change, all) => {
-    if (!string | (typeof string != 'string'))
+    if (typeof string != 'string')
       return console.error('Отсуствует строка для проверки!')
     if (!all) {
       if (!this.additionalWords)

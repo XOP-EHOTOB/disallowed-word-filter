@@ -11,7 +11,7 @@
 
 ```js
 const replaceDisallowedWords = require('disallowed-word-filter')
-const myFilter = replaceDisallowedWords({
+const myFilter = new replaceDisallowedWords({
   additionalWords: 'Привет, Пока', // Дополнительные запрещенные слова
 })
 ```
@@ -30,7 +30,7 @@ replace - Заменяет запрещенные слова
 
 ```js
 const replaceDisallowedWords = require('disallowed-word-filter')
-const myFilter = replaceDisallowedWords({
+const myFilter = new replaceDisallowedWords({
   additionalWords: 'Привет, Пока', // Дополнительные запрещенные слова
 })
 
